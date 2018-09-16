@@ -39,14 +39,25 @@ void setup() {
     Serial.println("Shield error or not present!");
     return;
 }
+ String version = SigFox.SigVersion();
+  String ID = SigFox.ID();
+  String PAC = SigFox.PAC();
+
+  // Display module informations
+  Serial.println("MKRFox1200 Sigfox first configuration");
+  Serial.println("SigFox FW version " + version);
+  Serial.println("ID  = " + ID);
+  Serial.println("PAC = " + PAC);
+  Serial.println("");
+  Serial.println("Register your board on https://backend.sigfox.com/activate with provided ID and PAC");
+  delay(100);
+  // Send the module to the deepest sleep
+  SigFox.end();
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  Serial.print("Turning LED on");
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  Serial.print("Turning LED off");
-  delay(1000);                       // wait for a second
+
+ 
+                      
 }

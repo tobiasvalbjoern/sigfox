@@ -117,12 +117,11 @@ void sendStringAndGetResponse(String str) {
   SigFox.print(str);
 
   // send buffer to SIGFOX network and wait for a response
-  int ret = SigFox.endPacket(true);  
-  if (ret > 0) {
-    Serial.println("No transmission");
-  } else {
-    Serial.println("Transmission ok");
-  }
+ int ret = SigFox.endPacket();
+    if (ret == 0)
+      Serial.println("OK");
+    else
+      Serial.println("KO");
 
   Serial.println(SigFox.status(SIGFOX));
   Serial.println(SigFox.status(ATMEL));
